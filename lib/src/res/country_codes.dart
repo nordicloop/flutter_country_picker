@@ -2215,11 +2215,11 @@ final List<Map<String, dynamic>> countryCodes = [
     "e164_sc": 0,
     "geographic": true,
     "level": 1,
-    "name": "Palestinian Territories",
+    "name": "Palestine",
     "example": "599123456",
-    "display_name": "Palestinian Territories (PS) [+970]",
+    "display_name": "Palestine (PS) [+970]",
     "full_example_with_plus_sign": "+970599123456",
-    "display_name_no_e164_cc": "Palestinian Territories (PS)",
+    "display_name_no_e164_cc": "Palestine (PS)",
     "e164_key": "970-PS-0"
   },
   {
@@ -3079,6 +3079,19 @@ final List<Map<String, dynamic>> countryCodes = [
     "display_name": "United States (US) [+1]",
     "full_example_with_plus_sign": "+12012345678",
     "display_name_no_e164_cc": "United States (US)",
+    "e164_key": "1-US-0"
+  },
+  {
+    "e164_cc": "1",
+    "iso2_cc": "US-NY",
+    "e164_sc": 0,
+    "geographic": true,
+    "level": 1,
+    "name": "United States (New York)",
+    "example": "2012345678",
+    "display_name": "United States (New York) (US-NY) [+1]",
+    "full_example_with_plus_sign": "+12012345678",
+    "display_name_no_e164_cc": "United States (New York) (US-NY)",
     "e164_key": "1-US-0"
   },
   {
