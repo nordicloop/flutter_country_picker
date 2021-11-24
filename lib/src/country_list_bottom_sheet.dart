@@ -13,6 +13,7 @@ void showCountryListBottomSheet({
   bool showPhoneCode = false,
   CountryListThemeData? countryListTheme,
   bool searchAutofocus = false,
+  bool showOnlyStatesOfUnitedStates = false
 }) {
   showModalBottomSheet(
     context: context,
@@ -26,6 +27,7 @@ void showCountryListBottomSheet({
       showPhoneCode,
       countryListTheme,
       searchAutofocus,
+      showOnlyStatesOfUnitedStates
     ),
   ).whenComplete(() {
     if (onClosed != null) onClosed();
@@ -40,6 +42,7 @@ Widget _builder(
   bool showPhoneCode,
   CountryListThemeData? countryListTheme,
   bool searchAutofocus,
+  bool showOnlyStatesOfUnitedStates
 ) {
   final device = MediaQuery.of(context).size.height;
   final statusBarHeight = MediaQuery.of(context).padding.top;
@@ -74,6 +77,7 @@ Widget _builder(
       showPhoneCode: showPhoneCode,
       countryListTheme: countryListTheme,
       searchAutofocus: searchAutofocus,
+      showOnlyStatesOfUnitedStates: showOnlyStatesOfUnitedStates,
     ),
   );
 }

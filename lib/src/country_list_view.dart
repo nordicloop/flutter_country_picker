@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'country.dart';
 import 'res/country_codes.dart';
+import 'res/country_codes_us_states.dart';
+
 import 'utils.dart';
 
 class CountryListView extends StatefulWidget {
@@ -31,6 +33,9 @@ class CountryListView extends StatefulWidget {
   /// An optional argument for initially expanding virtual keyboard
   final bool searchAutofocus;
 
+  /// An optional argument to show the list of the states of USA
+  final bool showOnlyStatesOfUnitedStates;
+
   const CountryListView({
     Key? key,
     required this.onSelect,
@@ -39,6 +44,7 @@ class CountryListView extends StatefulWidget {
     this.showPhoneCode = false,
     this.countryListTheme,
     this.searchAutofocus = false,
+    this.showOnlyStatesOfUnitedStates = false,
   })  : assert(exclude == null || countryFilter == null,
             'Cannot provide both exclude and countryFilter'),
         super(key: key);
@@ -52,13 +58,20 @@ class _CountryListViewState extends State<CountryListView> {
   late List<Country> _filteredList;
   late TextEditingController _searchController;
   late bool _searchAutofocus;
+  late bool _showOnlyStatesOfUnitedStates;
   @override
   void initState() {
     super.initState();
     _searchController = TextEditingController();
+    _showOnlyStatesOfUnitedStates = widget.showOnlyStatesOfUnitedStates;
 
-    _countryList =
-        countryCodes.map((country) => Country.from(json: country)).toList();
+    if (_showOnlyStatesOfUnitedStates)  {
+      _countryList =
+          unitedStatesCodes.map((country) => Country.from(json: country)).toList();
+    } else {
+      _countryList  =
+          countryCodes.map((country) => Country.from(json: country)).toList();
+    }
 
     //Remove duplicates country if not use phone code
     if (!widget.showPhoneCode) {
