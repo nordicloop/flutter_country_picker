@@ -13,10 +13,14 @@ void showCountryListBottomSheet({
   bool showPhoneCode = false,
   CountryListThemeData? countryListTheme,
   bool searchAutofocus = false,
+  bool showOnlyStatesOfUnitedStates = false,
+  bool showOnlyNY = false,
+  bool showSearch = false,
+  bool fullScreen = true
 }) {
   showModalBottomSheet(
     context: context,
-    isScrollControlled: true,
+    isScrollControlled: fullScreen,
     backgroundColor: Colors.transparent,
     builder: (_) => _builder(
       context,
@@ -26,6 +30,8 @@ void showCountryListBottomSheet({
       showPhoneCode,
       countryListTheme,
       searchAutofocus,
+      showOnlyStatesOfUnitedStates,
+      showOnlyNY, showSearch
     ),
   ).whenComplete(() {
     if (onClosed != null) onClosed();
@@ -40,6 +46,8 @@ Widget _builder(
   bool showPhoneCode,
   CountryListThemeData? countryListTheme,
   bool searchAutofocus,
+  bool showOnlyStatesOfUnitedStates,
+  bool showOnlyNY, bool showSearch
 ) {
   final device = MediaQuery.of(context).size.height;
   final statusBarHeight = MediaQuery.of(context).padding.top;
@@ -74,6 +82,9 @@ Widget _builder(
       showPhoneCode: showPhoneCode,
       countryListTheme: countryListTheme,
       searchAutofocus: searchAutofocus,
+      showOnlyStatesOfUnitedStates: showOnlyStatesOfUnitedStates,
+      showOnlyNY: showOnlyNY,
+      showSearch: showSearch
     ),
   );
 }

@@ -29,8 +29,10 @@ class MyApp extends StatelessWidget {
         const Locale('uk'),
         const Locale('hr'),
         const Locale('tr'),
-        const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'), // Generic Simplified Chinese 'zh_Hans'
-        const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'), // Generic traditional Chinese 'zh_Hant'
+        const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
+        // Generic Simplified Chinese 'zh_Hans'
+        const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
+        // Generic traditional Chinese 'zh_Hant'
       ],
       localizationsDelegates: [
         CountryLocalizations.delegate,
@@ -49,43 +51,119 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Demo for country picker')),
+        appBar: AppBar(title: Text('Demo for country picker')),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            showCountryPicker(
-              context: context,
-              //Optional.  Can be used to exclude(remove) one ore more country from the countries list (optional).
-              exclude: <String>['KN', 'MF'],
-              //Optional. Shows phone code before the country name.
-              showPhoneCode: true,
-              onSelect: (Country country) {
-                print('Select country: ${country.displayName}');
-              },
-              // Optional. Sets the theme for the country list picker.
-              countryListTheme: CountryListThemeData(
-                // Optional. Sets the border radius for the bottomsheet.
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
-                ),
-                // Optional. Styles the search field.
-                inputDecoration: InputDecoration(
-                  labelText: 'Search',
-                  hintText: 'Start typing to search',
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: const Color(0xFF8C98A8).withOpacity(0.2),
+        child: ListView(shrinkWrap:true,
+          padding: const EdgeInsets.all(25.0),
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                showCountryPicker(
+                  context: context,
+                  //Optional.  Can be used to exclude(remove) one ore more country from the countries list (optional).
+                  exclude: <String>['KN', 'MF'],
+                  //Optional. Shows phone code before the country name.
+                  showPhoneCode: true,
+                  onSelect: (Country country) {
+                    print('Select country: ${country.displayName}');
+                  },
+                  // Optional. Sets the theme for the country list picker.
+                  countryListTheme: CountryListThemeData(
+                    // Optional. Sets the border radius for the bottomsheet.
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40.0),
+                      topRight: Radius.circular(40.0),
+                    ),
+                    // Optional. Styles the search field.
+                    inputDecoration: InputDecoration(
+                      labelText: 'Search',
+                      hintText: 'Start typing to search',
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: const Color(0xFF8C98A8).withOpacity(0.2),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            );
-          },
-          child: const Text('Show country picker'),
-        ),
-      ),
+                );
+              },
+              child: const Text('Show country picker'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showCountryPicker(
+                  showOnlyStatesOfUnitedStates: true,
+                  context: context,
+                  //Optional. Shows phone code before the country name.
+                  showPhoneCode: false,
+                  onSelect: (Country country) {
+                    print('Select state: ${country.displayName}');
+                  },
+                  // Optional. Sets the theme for the country list picker.
+                  countryListTheme: CountryListThemeData(
+                    // Optional. Sets the border radius for the bottomsheet.
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40.0),
+                      topRight: Radius.circular(40.0),
+                    ),
+                    flagSize: 0,
+                    // Optional. Styles the search field.
+                    inputDecoration: InputDecoration(
+                      labelText: 'Search',
+                      hintText: 'Start typing to search',
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: const Color(0xFF8C98A8).withOpacity(0.2),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Show US state picker'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showCountryPicker(
+                  fullscreen: false,
+                  showOnlyStatesOfUnitedStates: true,
+                  showOnlyNY: true,
+                  showSearch: false,
+                  context: context,
+                  //Optional. Shows phone code before the country name.
+                  showPhoneCode: false,
+                  onSelect: (Country country) {
+                    print('Select state: ${country.displayName}');
+                  },
+                  // Optional. Sets the theme for the country list picker.
+                  countryListTheme: CountryListThemeData(
+                    // Optional. Sets the border radius for the bottomsheet.
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40.0),
+                      topRight: Radius.circular(40.0),
+                    ),
+                    flagSize: 0,
+                    // Optional. Styles the search field.
+                    inputDecoration: InputDecoration(
+                      labelText: 'Search',
+                      hintText: 'Start typing to search',
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: const Color(0xFF8C98A8).withOpacity(0.2),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Show NY and other state picker'),
+            )
+          ]
+        )
+      )
     );
   }
 }
