@@ -127,6 +127,7 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 showCountryPicker(
+                  fullscreen: false,
                   showOnlyStatesOfUnitedStates: true,
                   showOnlyNY: true,
                   showSearch: false,

@@ -43,7 +43,8 @@ void showCountryPicker({
   bool searchAutofocus = false,
   bool showOnlyStatesOfUnitedStates = false,
   bool showOnlyNY = false,
-  bool showSearch = true
+  bool showSearch = true,
+  bool fullscreen = true
 }) {
   assert(exclude == null || countryFilter == null,
       'Cannot provide both exclude and countryFilter');
@@ -57,6 +58,6 @@ void showCountryPicker({
     countryListTheme: countryListTheme,
     searchAutofocus: searchAutofocus,
     showOnlyStatesOfUnitedStates: showOnlyStatesOfUnitedStates,
-    showOnlyNY:showOnlyNY, showSearch: showSearch
+    showOnlyNY:showOnlyNY, showSearch: showSearch, fullScreen: fullscreen
   );
 }

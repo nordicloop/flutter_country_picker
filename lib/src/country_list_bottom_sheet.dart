@@ -15,11 +15,12 @@ void showCountryListBottomSheet({
   bool searchAutofocus = false,
   bool showOnlyStatesOfUnitedStates = false,
   bool showOnlyNY = false,
-  bool showSearch = false
+  bool showSearch = false,
+  bool fullScreen = true
 }) {
   showModalBottomSheet(
     context: context,
-    isScrollControlled: true,
+    isScrollControlled: fullScreen,
     backgroundColor: Colors.transparent,
     builder: (_) => _builder(
       context,
