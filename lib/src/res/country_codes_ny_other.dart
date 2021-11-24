@@ -14,7 +14,7 @@ final List<Map<String, dynamic>> nyOtherStates = [
   },
   {
     "e164_cc": "1",
-    "iso2_cc": "US",
+    "iso2_cc": "US-other",
     "e164_sc": 0,
     "geographic": true,
     "level": 1,
